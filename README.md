@@ -4,7 +4,8 @@
 
 The dataset lands in an S3 data lake and flows into Snowflake through a storage integration, where dbt transforms it through medallion layers — RAW (Bronze) tables loaded via `COPY INTO`, cleaned STAGING (Silver) views, and business-ready MARTS (Gold) with dimensions, incremental facts, and aggregate marts. Apache Airflow orchestrates the whole pipeline as one daily DAG. On top of the warehouse sits an AI lane powered by OpenAI: LLM enrichment turns free-text reviews into structured, queryable columns; RAG lets you chat with your reviews; and text-to-SQL lets you query the warehouse in plain English. Streamlit serves the dashboards and AI apps.
 
-![Architecture](docs/architecture.png)
+![Uploading architecture.png…]()
+
 
 ## What gets built
 
@@ -48,9 +49,6 @@ Python · Pandas · Amazon S3 · Snowflake · dbt (dbt-snowflake) · Apache Airf
 ├── aws/iam/                  # IAM policy + role trust policies for the S3 ↔ Snowflake handshake
 └── docs/architecture.png     # architecture diagram
 ```
-
-> `data/` (~2.3 GB of CSVs), logs, and dbt `target/` artifacts are intentionally not committed — get the dataset and slides from the [Google Drive folder](https://drive.google.com/drive/folders/1FEnGWMHhHzzTUCZOw1-YnH2v3DMuM-rs?usp=sharing).
-
 ## How the pipeline works
 
 ### 1 · Data lands in S3
